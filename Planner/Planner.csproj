@@ -46,8 +46,11 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandProcessor.cs" />
     <Compile Include="Commands\SetBudgetCommand.cs" />
+    <Compile Include="GardenObject.cs" />
     <Compile Include="Planner.cs" />
+    <Compile Include="Plant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
