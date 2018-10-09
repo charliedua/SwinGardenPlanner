@@ -9,11 +9,7 @@ namespace Planner
     /// <summary>
     /// Replace this now
     /// </summary>
-    public class Class1
+    public class Planner
     {
-        public void methodOne()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
