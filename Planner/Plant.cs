@@ -36,7 +36,7 @@ namespace Planner
 
         public string PlantDesc { get => _plantDesc; set => _plantDesc = value; }
 		
-		public int WaterFrequency ( get => _waterFrequency; set => _waterFrequency = value;}
+		public int WaterFrequency { get => _waterFrequency; set => _waterFrequency = value;}
 
         public float MinTemperature1 { get => MinTemperature; set => MinTemperature = value; }
 
