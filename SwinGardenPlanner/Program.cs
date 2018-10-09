@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace SwinGardenPlanner
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            int[][] grid = new int[5][];
+            for (int i = 0; i < grid.Length; i++)
+            {
+            }
         }
     }
 }

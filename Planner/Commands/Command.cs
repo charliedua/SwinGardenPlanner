@@ -21,6 +21,6 @@ namespace Planner.Commands
         /// Executes the specified command text.
         /// </summary>
         /// <param name="CommandText">The command text.</param>
-        public abstract string Execute(string CommandText);
+        public abstract string Execute(PlannerController controller, string CommandText);
     }
 }
