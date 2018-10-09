@@ -10,7 +10,6 @@ namespace Planner.Commands
     {
         public SetBudgetCommand()
         {
-
         }
 
         public override List<string> Identifiers { get => new List<string> { "set-budget", "change-budget", "edit-budget" }; }
@@ -22,13 +21,22 @@ namespace Planner.Commands
                 return "Unknown Input";
             }
 
-            if(CommandText[0].ToLower == Identifiers[0])
+            if (Identifiers.Contains(CommandText[0].ToLower()))
             {
-                Controller.CurrentUser.Budget = CommandText[1];
+                if (decimal.TryParse(CommandText[1], out decimal budget))
+                {
+                    Controller.CurrentUser.Budget = budget;
+                    return $"budget Updated: {budget}";
+                }
+                else
+                {
+                    return "Wrong Syntax for budget";
+                }
             }
-
-            Identifiers.Find(x => x == CommandText[0]);
-            throw new NotImplementedException();
+            else
+            {
+                return "Wrong Syntax for budget";
+            }
         }
     }
 }

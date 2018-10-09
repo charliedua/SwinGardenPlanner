@@ -16,6 +16,6 @@ namespace Planner
             throw new NotImplementedException();
         }
 
-        private User CurrentUser;
+        public User CurrentUser;
     }
 }

@@ -13,7 +13,8 @@ namespace Planner
         private int _price;
         private float MaxTemperature;
         private float MinTemperature;
-		private int _waterFrequency;
+        private int _waterFrequency;
+
         private enum Season
         {
             Summer, Autumn, Winter, Spring
@@ -28,15 +29,13 @@ namespace Planner
         {
         }
 
-        public int Area { get => _area; set => _area = value; }
-
         public int Price { get => _price; set => _price = value; }
 
         public string PlantFamily { get => _plantFamily; set => _plantFamily = value; }
 
         public string PlantDesc { get => _plantDesc; set => _plantDesc = value; }
-		
-		public int WaterFrequency { get => _waterFrequency; set => _waterFrequency = value;}
+
+        public int WaterFrequency { get => _waterFrequency; set => _waterFrequency = value; }
 
         public float MinTemperature1 { get => MinTemperature; set => MinTemperature = value; }
 
