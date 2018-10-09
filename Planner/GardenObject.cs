@@ -1,4 +1,4 @@
-﻿namespace SwinGardenPlanner
+﻿namespace Planner
 {
     public class GardenObject
     {

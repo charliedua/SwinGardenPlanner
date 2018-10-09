@@ -14,23 +14,24 @@ namespace Planner
         private int _area;
         private float MaxTemperature;
         private float MinTemperature;
+
         private enum Season
         {
             Summer, Autumn, Winter, Spring
         }
+
         private enum SunTolerance
         {
             FullSun, PartShade, FullShade
         }
+
         private enum WaterFrequency
         {
             EveryDay, Every3Days, EveryWeek, EveryMonth, Never
         }
 
-
         public Plant()
         {
-
         }
 
         public int Area { get => _area; set => _area = value; }
