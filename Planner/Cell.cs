@@ -8,8 +8,10 @@ namespace Planner
     {
         private string _x;
         private string _y;
+        /*
         private string _width;
         private string _height;
+        */
         private GardenObject _object;
 
         public bool HasObject
@@ -26,6 +28,7 @@ namespace Planner
             get;
             set;
         }
+        /*
         public bool Width
         {
             get;
@@ -40,6 +43,7 @@ namespace Planner
         {
             get;
         }
+        */
 
         public Cell()
         {
