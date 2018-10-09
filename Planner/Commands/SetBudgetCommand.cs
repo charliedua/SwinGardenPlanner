@@ -10,6 +10,7 @@ namespace Planner.Commands
     {
         public SetBudgetCommand()
         {
+
         }
 
         public override List<string> Identifiers { get => new List<string> { "set-budget", "change-budget", "edit-budget" }; }
@@ -19,6 +20,11 @@ namespace Planner.Commands
             if (CommandText.Length <= 0)
             {
                 return "Wrong Idea";
+            }
+
+            if(CommandText[0] == Identifiers[0])
+            {
+                PlannerController.CurrentUser.Budget = CommandText[1];
             }
             Identifiers.Find(x => x == CommandText[0]);
             throw new NotImplementedException();
