@@ -14,9 +14,10 @@ namespace Planner.Commands
         /// <value>
         /// The identifiers.
         /// </value>
-        public abstract string[] Identifiers { get; set; }
+        public abstract List<string> Identifiers { get; }
 
         /// <summary>
+
         /// Executes the specified command text.
         /// </summary>
         /// <param name="CommandText">The command text.</param>

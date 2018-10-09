@@ -12,10 +12,15 @@ namespace Planner.Commands
         {
         }
 
-        public override string[] Identifiers { get; set; }
+        public override List<string> Identifiers { get => new List<string> { "set-budget", "change-budget", "edit-budget" }; }
 
-        public override string Execute(string CommandText)
+        public override string Execute(string[] CommandText)
         {
+            if (CommandText.Length <= 0)
+            {
+                return "Wrong Idea";
+            }
+            Identifiers.Find(x => x == CommandText[0]);
             throw new NotImplementedException();
         }
     }
