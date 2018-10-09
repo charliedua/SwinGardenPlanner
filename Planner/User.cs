@@ -6,8 +6,9 @@ namespace Planner
     /// </summary>
     public class User
     {
-        private float _budget;
-        public float Budget
+        private decimal _budget;
+
+        public decimal Budget
         {
             get;
             set;
