@@ -11,10 +11,9 @@ namespace Planner
         private string _plantDesc;
         private string _plantFamily;
         private int _price;
-        private int _area;
         private float MaxTemperature;
         private float MinTemperature;
-
+		private int _waterFrequency;
         private enum Season
         {
             Summer, Autumn, Winter, Spring
@@ -23,11 +22,6 @@ namespace Planner
         private enum SunTolerance
         {
             FullSun, PartShade, FullShade
-        }
-
-        private enum WaterFrequency
-        {
-            EveryDay, Every3Days, EveryWeek, EveryMonth, Never
         }
 
         public Plant()
@@ -41,6 +35,8 @@ namespace Planner
         public string PlantFamily { get => _plantFamily; set => _plantFamily = value; }
 
         public string PlantDesc { get => _plantDesc; set => _plantDesc = value; }
+		
+		public int WaterFrequency ( get => _waterFrequency; set => _waterFrequency = value;}
 
         public float MinTemperature1 { get => MinTemperature; set => MinTemperature = value; }
 
