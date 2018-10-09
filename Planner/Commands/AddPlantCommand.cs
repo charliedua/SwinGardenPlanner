@@ -12,9 +12,9 @@ namespace Planner.Commands
         {
         }
 
-        public override string[] Identifiers { get; set; }
+        public override List<string> Identifiers => throw new NotImplementedException();
 
-        public override string Execute(string CommandText)
+        public override string Execute(PlannerController controller, string CommandText)
         {
             throw new NotImplementedException();
         }

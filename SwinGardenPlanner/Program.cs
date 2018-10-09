@@ -13,7 +13,27 @@ namespace SwinGardenPlanner
             int[][] grid = new int[5][];
             for (int i = 0; i < grid.Length; i++)
             {
+                grid[i] = new int[5];
+            }
+            string spaces = "   ";
+            for (int i = 0; i < grid.Length; i++)
+            {
+                Console.Write("|");
+                for (int j = 0; j < grid[j].Length; j++)
+                {
+                    Console.Write(spaces);
+                }
+                Console.WriteLine("|");
             }
         }
     }
 }
+
+/*
+ * ---------
+ * |   |   |
+ * ---------
+ *
+ *
+ *
+ */
