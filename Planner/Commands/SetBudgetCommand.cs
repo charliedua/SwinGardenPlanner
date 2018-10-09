@@ -15,17 +15,18 @@ namespace Planner.Commands
 
         public override List<string> Identifiers { get => new List<string> { "set-budget", "change-budget", "edit-budget" }; }
 
-        public override string Execute(string[] CommandText)
+        public override string Execute(PlannerController Controller, string[] CommandText)
         {
             if (CommandText.Length <= 0)
             {
-                return "Wrong Idea";
+                return "Unknown Input";
             }
 
-            if(CommandText[0] == Identifiers[0])
+            if(CommandText[0].ToLower == Identifiers[0])
             {
-                PlannerController.CurrentUser.Budget = CommandText[1];
+                Controller.CurrentUser.Budget = CommandText[1];
             }
+
             Identifiers.Find(x => x == CommandText[0]);
             throw new NotImplementedException();
         }
