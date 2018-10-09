@@ -12,9 +12,10 @@ namespace Planner.Commands
 
         public List<Command> Commands { get => _commands; set => _commands = value; }
 
-        public static string[] SplitString()
+        public static string[] SplitString(string text)
         {
-            return null;
+            text = text.Split(" ");
+            return text;
         }
 
         public string Execute(string Text)
