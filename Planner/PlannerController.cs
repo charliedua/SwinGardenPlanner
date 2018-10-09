@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Planner
 {
     /// <summary>
@@ -6,17 +7,15 @@ namespace Planner
     /// </summary>
     public class PlannerController
     {
-        private CommandProcessor _processor;
+        private Commands.CommandProcessor _processor;
 
-        public Plant[] Plants
-        {
-            get;
-        }
+        public Plant[] Plants { get; }
 
         public PlannerController()
         {
             throw new NotImplementedException();
         }
 
+        private User CurrentUser;
     }
 }
