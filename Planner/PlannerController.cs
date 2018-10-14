@@ -7,15 +7,14 @@ namespace Planner
     /// </summary>
     public class PlannerController
     {
+        public User CurrentUser;
         private Commands.CommandProcessor _processor;
-
-        public Plant[] Plants { get; }
 
         public PlannerController()
         {
             throw new NotImplementedException();
         }
 
-        public User CurrentUser;
+        public Plant[] Plants { get; }
     }
 }

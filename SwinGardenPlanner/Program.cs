@@ -9,28 +9,6 @@ namespace SwinGardenPlanner
 {
     internal class Program
     {
-        private static void Main(string[] args)
-        {
-            // (3+1)*3 + 1 = 13
-            const int GARDEN_LENGTH = 15;
-            Cell[][] cells = new Cell[GARDEN_LENGTH][];
-            for (int i = 0; i < cells.Length; i++)
-            {
-                cells[i] = new Cell[GARDEN_LENGTH];
-            }
-            for (int i = 0; i < cells.Length; i++)
-            {
-                for (int j = 0; j < cells[i].Length; j++)
-                {
-                    cells[i][j] = new Cell(i + 1, j + 1);
-                }
-            }
-            cells[9][4].Object = new GardenObject();
-            cells[4][4].Object = new GardenObject();
-            cells[4][8].Object = new GardenObject();
-            PrintGrid(cells);
-        }
-
         public static void PrintGrid(Cell[][] grid)
         {
             const float WIDTH = 3.0f;
@@ -63,6 +41,28 @@ namespace SwinGardenPlanner
             Console.WriteLine(new string('-', NoOfDashes));
 
             Console.WriteLine();
+        }
+
+        private static void Main(string[] args)
+        {
+            // (3+1)*3 + 1 = 13
+            const int GARDEN_LENGTH = 15;
+            Cell[][] cells = new Cell[GARDEN_LENGTH][];
+            for (int i = 0; i < cells.Length; i++)
+            {
+                cells[i] = new Cell[GARDEN_LENGTH];
+            }
+            for (int i = 0; i < cells.Length; i++)
+            {
+                for (int j = 0; j < cells[i].Length; j++)
+                {
+                    cells[i][j] = new Cell(i + 1, j + 1);
+                }
+            }
+            cells[9][4].Object = new GardenObject();
+            cells[4][4].Object = new GardenObject();
+            cells[4][8].Object = new GardenObject();
+            PrintGrid(cells);
         }
     }
 }

@@ -11,9 +11,13 @@ namespace Planner
         private string _plantDesc;
         private string _plantFamily;
         private int _price;
+        private int _waterFrequency;
         private float MaxTemperature;
         private float MinTemperature;
-        private int _waterFrequency;
+
+        public Plant()
+        {
+        }
 
         private enum Season
         {
@@ -25,20 +29,11 @@ namespace Planner
             FullSun, PartShade, FullShade
         }
 
-        public Plant()
-        {
-        }
-
-        public int Price { get => _price; set => _price = value; }
-
-        public string PlantFamily { get => _plantFamily; set => _plantFamily = value; }
-
-        public string PlantDesc { get => _plantDesc; set => _plantDesc = value; }
-
-        public int WaterFrequency { get => _waterFrequency; set => _waterFrequency = value; }
-
-        public float MinTemperature1 { get => MinTemperature; set => MinTemperature = value; }
-
         public float MaxTemperature1 { get => MaxTemperature; set => MaxTemperature = value; }
+        public float MinTemperature1 { get => MinTemperature; set => MinTemperature = value; }
+        public string PlantDesc { get => _plantDesc; set => _plantDesc = value; }
+        public string PlantFamily { get => _plantFamily; set => _plantFamily = value; }
+        public int Price { get => _price; set => _price = value; }
+        public int WaterFrequency { get => _waterFrequency; set => _waterFrequency = value; }
     }
 }

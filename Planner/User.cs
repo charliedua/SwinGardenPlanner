@@ -9,15 +9,11 @@ namespace Planner
     {
         private decimal _budget;
 
-        public decimal Budget
-        {
-            get;
-            set;
-        }
-
         public User()
         {
             throw new NotImplementedException();
         }
+
+        public decimal Budget { get => _budget; set => _budget = value; }
     }
 }
