@@ -14,8 +14,7 @@ namespace Planner.Commands
 
         public static string[] SplitString(string text)
         {
-            text = text.Split(" ");
-            return text;
+            return text.Split(' ');
         }
 
         public string Execute(string Text)
