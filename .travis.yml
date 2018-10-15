@@ -1,5 +1,6 @@
 language: csharp
 solution: SwinGardenPlanner.sln
+os: windows
 install:
   - nuget restore SwinGardenPlanner.sln
 script:
