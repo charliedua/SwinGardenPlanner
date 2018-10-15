@@ -24,6 +24,10 @@ namespace Planner.Commands
             {
                 return "Wrong Syntax.";
             }
+            if (controller.Garden == null)
+            {
+                return "You don't have a garden yet";
+            }
             Plant plant = controller.Plants.Find(x => x.ID == ID);
             if (plant == null)
             {

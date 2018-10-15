@@ -55,5 +55,14 @@ namespace Planner.Commands.Tests
             string expected = "Plant cant be planted outside the garden";
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void AddPlantWithoutGarden()
+        {
+            controller.Garden = null;
+            string actual = command.Execute(controller, new string[] { "add-plant", "3", "0", "1" });
+            string expected = "You don't have a garden yet";
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
