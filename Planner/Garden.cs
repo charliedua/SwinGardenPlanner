@@ -8,22 +8,29 @@ namespace Planner
 {
     public class Garden
     {
-        private string _name;
         private int _height;
         private int _width;
-        private Plant[] _plants;
+        private Cell[][] _cells;
 
-        public Garden()
+        public Garden(int size)
         {
+            _height = size;
+            _width = size;
+            _cells = new Cell[size][];
+            for (int i = 0; i < _cells.Length; i++)
+            {
+                _cells[i] = new Cell[size];
+                for (int j = 0; j < _cells[i].Length; j++)
+                {
+                    _cells[i][j] = new Cell(i, j);
+                }
+            }
         }
-
-        public string Name { get => _name; set => _name = value; }
 
         public int Height { get => _height; set => _height = value; }
 
         public int Width { get => _width; set => _width = value; }
-
-        public Plant[] Plants { get => _plants; set => _plants = value; }
+        public Cell[][] Cells { get => _cells; set => _cells = value; }
 
         public int GetArea()
         {

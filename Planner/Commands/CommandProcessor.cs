@@ -10,6 +10,15 @@ namespace Planner.Commands
     {
         private List<Command> _commands;
 
+        public CommandProcessor()
+        {
+            _commands = new List<Command>()
+            {
+                new AddGardenCommand(),
+                new ShowGardenCommand()
+            };
+        }
+
         public List<Command> Commands { get => _commands; set => _commands = value; }
 
         public static string[] SplitString(string text)
@@ -17,9 +26,25 @@ namespace Planner.Commands
             return text.Split(' ');
         }
 
-        public string Execute(string Text)
+        public string Execute(PlannerController controller, string Text)
         {
-            return null;
+            string[] textarr = SplitString(Text);
+            Command command = null;
+            foreach (var item in _commands)
+            {
+                if (item.AreYou(textarr[0]))
+                {
+                    command = item;
+                }
+            }
+            if (command != null)
+            {
+                return command.Execute(controller, textarr);
+            }
+            else
+            {
+                return "This is not possible";
+            }
         }
     }
 }

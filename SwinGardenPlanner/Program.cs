@@ -48,14 +48,13 @@ namespace SwinGardenPlanner
         private static void Main(string[] args)
         {
             PlannerController controller = new PlannerController();
-            //controller.CurrentUser = new User();
-            Command command = new AddGardenCommand();
+            CommandProcessor processor = new CommandProcessor();
             string text;
             while (true)
             {
                 Console.Write("Enter your command here $ ");
                 text = Console.ReadLine();
-                Console.WriteLine(command.Execute(controller, text.Split(' ')));
+                Console.WriteLine(processor.Execute(controller, text));
             }
 
             // (3+1)*3 + 1 = 13

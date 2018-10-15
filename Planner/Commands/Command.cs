@@ -21,5 +21,10 @@ namespace Planner.Commands
         /// </summary>
         /// <param name="CommandText">The command text.</param>
         public abstract string Execute(PlannerController controller, string[] CommandText);
+
+        public bool AreYou(string ident)
+        {
+            return Identifiers.Contains(ident);
+        }
     }
 }

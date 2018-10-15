@@ -35,7 +35,7 @@ namespace Planner.Tests
         public void AddGardenWhenAlreadyExists()
         {
             Controller = new PlannerController();
-            Controller.Garden = new Garden();
+            Controller.Garden = new Garden(5);
             string actual = command.Execute(Controller, new string[] { "add-garden", "10" });
             string expected = "Garden Already Exits";
             Assert.AreEqual(expected, actual);

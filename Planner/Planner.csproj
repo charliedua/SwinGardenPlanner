@@ -47,6 +47,7 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandProcessor.cs" />
     <Compile Include="Commands\SetBudgetCommand.cs" />
+    <Compile Include="Commands\ShowGardenCommand.cs" />
     <Compile Include="Garden.cs" />
     <Compile Include="GardenObject.cs" />
     <Compile Include="Planner.cs" />

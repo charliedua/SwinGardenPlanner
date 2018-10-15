@@ -11,7 +11,7 @@ namespace Planner.Tests
     [TestClass()]
     public class GardenTests
     {
-        private readonly Garden garden = new Garden();
+        private readonly Garden garden = new Garden(5);
         private const int WIDTH = 10;
         private const int HEIGHT = 10;
 

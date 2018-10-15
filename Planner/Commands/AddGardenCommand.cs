@@ -30,11 +30,7 @@ namespace Planner.Commands
             }
             else
             {
-                controller.Garden = new Garden
-                {
-                    Height = size,
-                    Width = size
-                };
+                controller.Garden = new Garden(size);
                 return "New Garden Created. Size: " + controller.Garden.Height;
             }
         }
