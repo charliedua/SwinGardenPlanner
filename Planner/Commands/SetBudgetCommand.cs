@@ -16,7 +16,7 @@ namespace Planner.Commands
 
         public override string Execute(PlannerController Controller, string[] CommandText)
         {
-            if (CommandText.Length <= 0)
+            if (CommandText.Length != 2)
             {
                 return "Unknown Input";
             }

@@ -12,7 +12,9 @@ namespace SwinGardenPlanner
     {
         private static void Main(string[] args)
         {
-            PlannerController controller = new PlannerController();
+            Console.Write("Please Write Your Name here $ ");
+            string Name = Console.ReadLine();
+            PlannerController controller = new PlannerController(Name);
             CommandProcessor processor = new CommandProcessor();
             controller.Plants = new List<Plant>
             {

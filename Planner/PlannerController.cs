@@ -15,9 +15,10 @@ namespace Planner
 
         public List<Plant> Plants { get; set; }
 
-        public PlannerController()
+        public PlannerController(string username)
         {
             _processor = new CommandProcessor();
+            CurrentUser = new User(0, username);
         }
 
         public Garden Garden { get => _garden; set => _garden = value; }

@@ -47,6 +47,11 @@ namespace Planner
         {
         }
 
+        public override string GetDetails()
+        {
+            return base.GetDetails() + string.Format("\nPrice: {0}\nMax Temprature: {1}\nMin Temprature: {2}\n Description: {3}\n WaterFrequency: {4}", Price, MaxTemperature, MinTemperature, PlantDesc, WaterFrequency);
+        }
+
         //private enum Season
         //{
         //    Summer, Autumn, Winter, Spring

@@ -24,7 +24,7 @@ namespace Planner.Commands
             {
                 return "Please Create a Garden First.";
             }
-            return GetHumanReadableGrid(controller.Garden.Cells);
+            return GetHumanReadableGrid(controller.Garden.Cells) + controller.CurrentUser.GetDetails();
         }
 
         public static string GetHumanReadableGrid(Cell[][] grid)

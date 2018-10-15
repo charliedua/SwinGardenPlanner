@@ -43,6 +43,7 @@ namespace Planner.Commands
                 return "The cell already has: " + controller.Garden.Cells[X][Y].Object.Name;
             }
             controller.Garden.Cells[X][Y].Object = plant;
+            controller.CurrentUser.Budget -= plant.Price;
             return "Plant Created. Name: " + plant.Name;
         }
     }

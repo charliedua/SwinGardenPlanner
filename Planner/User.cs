@@ -14,5 +14,10 @@ namespace Planner
         }
 
         public decimal Budget { get => _budget; set => _budget = value; }
+
+        public override string GetDetails()
+        {
+            return base.GetDetails() + $"\nBudget ${Budget}";
+        }
     }
 }
