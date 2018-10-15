@@ -20,7 +20,7 @@ namespace Planner.Commands
 
         public override string Execute(PlannerController controller, string[] CommandText)
         {
-            if (!Identifiers.Contains(CommandText[0]) || !int.TryParse(CommandText[1], out int size))
+            if (CommandText.Length != 2 || !Identifiers.Contains(CommandText[0]) || !int.TryParse(CommandText[1], out int size))
             {
                 return "Wrong Syntax.";
             }

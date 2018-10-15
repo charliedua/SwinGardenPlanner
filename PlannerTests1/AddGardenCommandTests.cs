@@ -53,5 +53,14 @@ namespace Planner.Tests
             Assert.AreEqual(expected, actual);
             Controller = null;
         }
+
+        [TestMethod]
+        public void AddGardenWithWrongNumberOfTextParameters()
+        {
+            Controller = new PlannerController();
+            string actual = command.Execute(Controller, new string[] { "add-garden" });
+            string expected = "Wrong Syntax.";
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

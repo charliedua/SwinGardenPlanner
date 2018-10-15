@@ -1,4 +1,5 @@
 ﻿using Planner;
+using Planner.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,42 +10,54 @@ namespace SwinGardenPlanner
 {
     public class Program
     {
-        public static void PrintGrid(Cell[][] grid)
+        public static string GetHumanReadableGrid(Cell[][] grid)
         {
             const float WIDTH = 3.0f;
             int NoOfDashes = (int)((WIDTH + 1) * grid.Length + 1);
-            Console.WriteLine(new string('-', NoOfDashes));
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(new string('-', NoOfDashes));
 
             for (int i = 0; i < grid.Length; i++)
             {
-                Console.Write("|");
-                Console.Write(new string(' ', (int)WIDTH));
+                builder.Append("|");
+                builder.Append(new string(' ', (int)WIDTH));
             }
-            Console.WriteLine("|");
+            builder.AppendLine("|");
             for (int i = 0; i < grid.Length; i++)
             {
-                Console.Write(new string('-', NoOfDashes));
+                builder.Append(new string('-', NoOfDashes));
 
-                Console.WriteLine();
+                builder.AppendLine();
                 foreach (Cell cell in grid[i])
                 {
-                    Console.Write("|");
-                    Console.Write(new string(' ', (int)(WIDTH / 2 - 0.5)));
+                    builder.Append("|");
+                    builder.Append(new string(' ', (int)(WIDTH / 2 - 0.5)));
                     if (!cell.HasObject)
-                        Console.Write(" ");
+                        builder.Append(" ");
                     else
-                        Console.Write("X");
-                    Console.Write(new string(' ', (int)(WIDTH / 2 - 0.5)));
+                        builder.Append("X");
+                    builder.Append(new string(' ', (int)(WIDTH / 2 - 0.5)));
                 }
-                Console.WriteLine("|");
+                builder.AppendLine("|");
             }
-            Console.WriteLine(new string('-', NoOfDashes));
-
-            Console.WriteLine();
+            builder.AppendLine(new string('-', NoOfDashes));
+            builder.AppendLine();
+            return builder.ToString();
         }
 
         private static void Main(string[] args)
         {
+            PlannerController controller = new PlannerController();
+            //controller.CurrentUser = new User();
+            Command command = new AddGardenCommand();
+            string text;
+            while (true)
+            {
+                Console.Write("Enter your command here $ ");
+                text = Console.ReadLine();
+                Console.WriteLine(command.Execute(controller, text.Split(' ')));
+            }
+
             // (3+1)*3 + 1 = 13
             const int GARDEN_LENGTH = 15;
             Cell[][] cells = new Cell[GARDEN_LENGTH][];
@@ -62,7 +75,7 @@ namespace SwinGardenPlanner
             cells[9][4].Object = new GardenObject();
             cells[4][4].Object = new GardenObject();
             cells[4][8].Object = new GardenObject();
-            PrintGrid(cells);
+            Console.Write(GetHumanReadableGrid(cells));
         }
     }
 }
