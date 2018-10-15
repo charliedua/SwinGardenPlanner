@@ -12,8 +12,8 @@ namespace Planner
         private string _plantFamily;
         private int _price;
         private int _waterFrequency;
-        private float MaxTemperature;
-        private float MinTemperature;
+        private float _maxTemperature;
+        private float _minTemperature;
 
         public Plant()
         {
@@ -29,8 +29,8 @@ namespace Planner
             FullSun, PartShade, FullShade
         }
 
-        public float MaxTemperature1 { get => MaxTemperature; set => MaxTemperature = value; }
-        public float MinTemperature1 { get => MinTemperature; set => MinTemperature = value; }
+        public float MaxTemperature { get => _maxTemperature; set => _maxTemperature = value; }
+        public float MinTemperature { get => _minTemperature; set => _minTemperature = value; }
         public string PlantDesc { get => _plantDesc; set => _plantDesc = value; }
         public string PlantFamily { get => _plantFamily; set => _plantFamily = value; }
         public int Price { get => _price; set => _price = value; }

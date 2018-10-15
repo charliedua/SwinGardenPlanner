@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Planner.Commands
 {
-    internal class SetBudgetCommand : Command
+    public class SetBudgetCommand : Command
     {
         public SetBudgetCommand()
         {

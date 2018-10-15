@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Planner.Commands
 {
-    internal class AddPlantCommand : Command
+    public class AddPlantCommand : Command
     {
         public AddPlantCommand()
         {

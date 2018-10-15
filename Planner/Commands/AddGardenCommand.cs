@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Planner.Commands
 {
-    internal class AddGardenCommand : Command
+    public class AddGardenCommand : Command
     {
         public AddGardenCommand()
         {
         }
+
+        /*
+         * add-garden 10
+         */
 
         public override List<string> Identifiers => throw new NotImplementedException();
 

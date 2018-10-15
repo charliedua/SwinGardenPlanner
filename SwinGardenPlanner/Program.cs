@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SwinGardenPlanner
 {
-    internal class Program
+    public class Program
     {
         public static void PrintGrid(Cell[][] grid)
         {

@@ -15,7 +15,6 @@ namespace Planner
 
         public Garden()
         {
-
         }
 
         public string Name { get => _name; set => _name = value; }
@@ -26,13 +25,10 @@ namespace Planner
 
         public Plant[] Plants { get => _plants; set => _plants = value; }
 
-        public int Area
+        public int GetArea()
         {
-            get
-            {
-                int _area = _height * _width;
-                return _area;
-            }
+            int _area = _height * _width;
+            return _area;
         }
     }
 }

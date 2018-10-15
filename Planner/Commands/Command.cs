@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Planner.Commands
 {
-    internal abstract class Command
+    public abstract class Command
     {
         /// <summary>
         /// Gets or sets the identifiers.
@@ -17,7 +17,6 @@ namespace Planner.Commands
         public abstract List<string> Identifiers { get; }
 
         /// <summary>
-
         /// Executes the specified command text.
         /// </summary>
         /// <param name="CommandText">The command text.</param>

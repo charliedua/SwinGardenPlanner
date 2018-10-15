@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Planner.Commands
 {
-    internal class CommandProcessor
+    public class CommandProcessor
     {
         private List<Command> _commands;
 

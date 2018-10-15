@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Planner
 {
@@ -7,6 +8,7 @@ namespace Planner
     /// </summary>
     public class PlannerController
     {
+        private Garden _garden;
         public User CurrentUser;
         private Commands.CommandProcessor _processor;
 
@@ -15,6 +17,6 @@ namespace Planner
             throw new NotImplementedException();
         }
 
-        public Plant[] Plants { get; }
+        public Garden Garden { get => _garden; set => _garden = value; }
     }
 }
