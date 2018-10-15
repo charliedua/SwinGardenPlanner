@@ -16,11 +16,27 @@ namespace Planner.Commands
          * add-garden [INT]
          */
 
-        public override List<string> Identifiers => throw new NotImplementedException();
+        public override List<string> Identifiers => new List<string>() { "add-garden" };
 
         public override string Execute(PlannerController controller, string[] CommandText)
         {
-            throw new NotImplementedException();
+            if (!Identifiers.Contains(CommandText[0]) || !int.TryParse(CommandText[1], out int size))
+            {
+                return "Wrong Syntax.";
+            }
+            if (controller.Garden != null)
+            {
+                return "Garden Already Exits";
+            }
+            else
+            {
+                controller.Garden = new Garden
+                {
+                    Height = size,
+                    Width = size
+                };
+                return "New Garden Created. Size: " + controller.Garden.Height;
+            }
         }
     }
 }

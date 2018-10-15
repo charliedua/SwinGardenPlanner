@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Planner.Commands;
+using System;
 using System.Collections.Generic;
 
 namespace Planner
@@ -8,13 +9,13 @@ namespace Planner
     /// </summary>
     public class PlannerController
     {
-        private Garden _garden;
+        private Garden _garden = null;
         public User CurrentUser;
-        private Commands.CommandProcessor _processor;
+        private CommandProcessor _processor;
 
         public PlannerController()
         {
-            throw new NotImplementedException();
+            _processor = new CommandProcessor();
         }
 
         public Garden Garden { get => _garden; set => _garden = value; }

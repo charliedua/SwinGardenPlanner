@@ -24,8 +24,8 @@ namespace Planner.Tests
         {
             string text = command.Execute(Controller, new string[] { "add-garden", "10" });
 
-            Assert.AreEqual(Controller.Garden.Height, 10);
-            Assert.AreEqual(Controller.Garden.Width, 10);
+            Assert.AreEqual(10, Controller.Garden.Height);
+            Assert.AreEqual(10, Controller.Garden.Width);
 
             Assert.AreEqual(text, "New Garden Created. Size: 10");
             Controller = new PlannerController();
@@ -34,6 +34,7 @@ namespace Planner.Tests
         [TestMethod()]
         public void AddGardenWhenAlreadyExists()
         {
+            Controller = new PlannerController();
             Controller.Garden = new Garden();
             string actual = command.Execute(Controller, new string[] { "add-garden", "10" });
             string expected = "Garden Already Exits";
@@ -50,6 +51,7 @@ namespace Planner.Tests
             Assert.AreEqual(expected, actual);
             actual = command.Execute(Controller, new string[] { "add-", "po" });
             Assert.AreEqual(expected, actual);
+            Controller = null;
         }
     }
 }
