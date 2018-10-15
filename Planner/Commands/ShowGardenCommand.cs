@@ -16,22 +16,22 @@ namespace Planner.Commands
 
         public override string Execute(PlannerController controller, string[] CommandText)
         {
+            if (!AreYou(CommandText[0]) || CommandText.Length != 1)
+            {
+                return "Wrong Syntax.";
+            }
+            if (controller.Garden == null)
+            {
+                return "Please Create a Garden First.";
+            }
             return GetHumanReadableGrid(controller.Garden.Cells);
         }
 
-        private static string GetHumanReadableGrid(Cell[][] grid)
+        public static string GetHumanReadableGrid(Cell[][] grid)
         {
             const float WIDTH = 3.0f;
             int NoOfDashes = (int)((WIDTH + 1) * grid.Length + 1);
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine(new string('-', NoOfDashes));
-
-            for (int i = 0; i < grid.Length; i++)
-            {
-                builder.Append("|");
-                builder.Append(new string(' ', (int)WIDTH));
-            }
-            builder.AppendLine("|");
             for (int i = 0; i < grid.Length; i++)
             {
                 builder.Append(new string('-', NoOfDashes));

@@ -13,6 +13,8 @@ namespace Planner
         public User CurrentUser;
         private CommandProcessor _processor;
 
+        public List<Plant> Plants { get; set; }
+
         public PlannerController()
         {
             _processor = new CommandProcessor();
