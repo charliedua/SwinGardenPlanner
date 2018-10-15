@@ -1,0 +1,7 @@
+language: csharp
+solution: SwinGardenPlanner.sln
+install:
+  - nuget restore SwinGardenPlanner.sln
+script:
+  - xbuild /p:Configuration=Debug SwinGardenPlanner.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./PlannerTests/bin/Degbug/Planner.Tests.dll
