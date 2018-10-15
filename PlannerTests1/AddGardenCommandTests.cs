@@ -48,6 +48,8 @@ namespace Planner.Tests
             string actual = command.Execute(Controller, new string[] { "add-garden", "po" });
             string expected = "Wrong Syntax.";
             Assert.AreEqual(expected, actual);
+            actual = command.Execute(Controller, new string[] { "add-", "po" });
+            Assert.AreEqual(expected, actual);
         }
     }
 }

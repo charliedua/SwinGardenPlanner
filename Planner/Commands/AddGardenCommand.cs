@@ -13,7 +13,7 @@ namespace Planner.Commands
         }
 
         /*
-         * add-garden 10
+         * add-garden [INT]
          */
 
         public override List<string> Identifiers => throw new NotImplementedException();
