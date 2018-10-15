@@ -38,6 +38,10 @@ namespace Planner.Commands
             {
                 return "Plant cant be planted outside the garden";
             }
+            if (controller.Garden.Cells[X][Y].HasObject)
+            {
+                return "The cell already has: " + controller.Garden.Cells[X][Y].Object.Name;
+            }
             controller.Garden.Cells[X][Y].Object = plant;
             return "Plant Created. Name: " + plant.Name;
         }

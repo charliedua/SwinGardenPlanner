@@ -64,5 +64,13 @@ namespace Planner.Commands.Tests
             string expected = "You don't have a garden yet";
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void AddPlantConflictingPosition()
+        {
+            controller.Garden.Cells[0][0].Object = controller.Plants[0];
+            string actual = command.Execute(controller, new string[] { "add-plant", "1", "0", "0" });
+            string expected = "The cell already has: " + controller.Plants[0].Name;
+        }
     }
 }
