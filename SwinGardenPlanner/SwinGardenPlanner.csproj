@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="appcenter-pre-build.ps1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Planner\Planner.csproj">

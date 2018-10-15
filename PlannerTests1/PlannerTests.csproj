@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="AddGardenCommandTests.cs" />
     <Compile Include="Commands\AddPlantCommandTests.cs" />
+    <Compile Include="Commands\RemovePlantCommandTests.cs" />
     <Compile Include="Commands\ShowGardenCommandTests.cs" />
     <Compile Include="GardenTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
