@@ -5,13 +5,12 @@ namespace Planner
     /// <summary>
     /// Holds all data relating to the user, such as their budget.
     /// </summary>
-    public class User
+    public class User : GardenObject
     {
         private decimal _budget;
 
-        public User()
+        public User(int id, string name) : base(id, name)
         {
-            throw new NotImplementedException();
         }
 
         public decimal Budget { get => _budget; set => _budget = value; }

@@ -16,7 +16,8 @@ namespace Planner.Commands
             {
                 new AddGardenCommand(),
                 new ShowGardenCommand(),
-                new AddPlantCommand()
+                new AddPlantCommand(),
+                new SetBudgetCommand()
             };
         }
 

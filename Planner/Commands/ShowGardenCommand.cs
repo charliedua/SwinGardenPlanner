@@ -44,7 +44,7 @@ namespace Planner.Commands
                     if (!cell.HasObject)
                         builder.Append(" ");
                     else
-                        builder.Append("X");
+                        builder.Append(cell.Object.Name.ToUpper().ToCharArray()[0]);
                     builder.Append(new string(' ', (int)(WIDTH / 2 - 0.5)));
                 }
                 builder.AppendLine("|");
