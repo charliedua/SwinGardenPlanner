@@ -66,11 +66,19 @@ namespace Planner.Commands.Tests
         }
 
         [TestMethod]
-        public void AddPlantConflictingPosition()
+        public void AddPlantConflictingPositionTest()
         {
             controller.Garden.Cells[0][0].Object = controller.Plants[0];
             string actual = command.Execute(controller, new string[] { "add-plant", "1", "0", "0" });
             string expected = "The cell already has: " + controller.Plants[0].Name;
+        }
+
+        [TestMethod]
+        public void CornorCaseEndOfArrayAdditionTest()
+        {
+            string actual = command.Execute(controller, new string[] { "add-plant", "3", "4", "4" });
+            string expected = "Plant Created. Name: " + controller.Plants[3].Name;
+            Assert.AreEqual(expected, actual);
         }
     }
 }

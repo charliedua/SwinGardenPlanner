@@ -34,7 +34,7 @@ namespace Planner.Commands
             {
                 return "Can't find the plant.";
             }
-            if (X > controller.Garden.Width || Y > controller.Garden.Width)
+            if (X + 1 > controller.Garden.Width || Y + 1 > controller.Garden.Width)
             {
                 return "Plant cant be planted outside the garden";
             }
