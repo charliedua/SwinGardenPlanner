@@ -13,10 +13,12 @@ namespace Planner.Commands.Tests
     {
         private Command removeCommand = new RemovePlantCommand();
         private PlannerController controller = new PlannerController("");
+        private Command addCommand = new AddPlantCommand();
 
         [TestInitialize]
         public void RemovePlantCommandTestsInit()
         {
+
             controller.Garden = new Garden(5);
             controller.Plants = new List<Plant>
             {
@@ -27,14 +29,22 @@ namespace Planner.Commands.Tests
             };
         }
 
-        [TestMethod()]
-        public void TestPlantIsRemoved()
+        [TestMethod()]// Trying to remove a plant that is yet to be added.
+        public void TestPlantNotFound()
         {
+            string actual = removeCommand.Execute(controller, new string[] { "remove-plant", "0", "0" });
+            string expected = "Plant could not be found.";
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod()]// Successfully removing a plant that has been added.
+        public void TestPlantRemoved()
+        {
+            addCommand.Execute(controller, new string[] { "add-plant", "0", "0", "0" });
             string actual = removeCommand.Execute(controller, new string[] { "remove-plant", "0", "0" });
             string expected = "Plant removed from garden.";
             Assert.AreEqual(expected, actual);
         }
-        [TestMethod()]
+        [TestMethod()] // Using the wrong command syntax!
         public void TestWrongSyntax()
         {
             string expected = "Wrong Syntax.";
