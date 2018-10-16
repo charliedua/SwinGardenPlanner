@@ -11,7 +11,7 @@ namespace Planner.Commands.Tests
     [TestClass()]
     public class RemovePlantCommandTests
     {
-        private Command command = new RemovePlantCommand();
+        private Command removeCommand = new RemovePlantCommand();
         private PlannerController controller = new PlannerController("");
 
         [TestInitialize]
@@ -28,10 +28,21 @@ namespace Planner.Commands.Tests
         }
 
         [TestMethod()]
-        public void ValidTest()
+        public void TestPlantIsRemoved()
         {
-            string actual = command.Execute(controller, new string[] { "remove-plant", "0", "0" });
-            string expected = "Plant Removed From Board";
+            string actual = removeCommand.Execute(controller, new string[] { "remove-plant", "0", "0" });
+            string expected = "Plant removed from garden.";
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod()]
+        public void TestWrongSyntax()
+        {
+            string expected = "Wrong Syntax.";
+            string actual = removeCommand.Execute(controller, new string[] { "remove-plant", "s", "b" });
+            Assert.AreEqual(expected, actual);
+            actual = removeCommand.Execute(controller, new string[] { "remove-palnt", "0", "2" });
+            Assert.AreEqual(expected, actual);
+            actual = removeCommand.Execute(controller, new string[] { "remove plant", "5", "2" });
             Assert.AreEqual(expected, actual);
         }
     }
