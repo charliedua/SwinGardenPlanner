@@ -13,7 +13,7 @@ namespace Planner.Tests
     public class AddGardenCommandTests
     {
         private Command command = new AddGardenCommand();
-        private PlannerController Controller = new PlannerController();
+        private PlannerController Controller = new PlannerController("");
 
         public AddGardenCommandTests()
         {
@@ -28,13 +28,13 @@ namespace Planner.Tests
             Assert.AreEqual(10, Controller.Garden.Width);
 
             Assert.AreEqual(text, "New Garden Created. Size: 10");
-            Controller = new PlannerController();
+            Controller = new PlannerController("");
         }
 
         [TestMethod()]
         public void AddGardenWhenAlreadyExists()
         {
-            Controller = new PlannerController();
+            Controller = new PlannerController("");
             Controller.Garden = new Garden(5);
             string actual = command.Execute(Controller, new string[] { "add-garden", "10" });
             string expected = "Garden Already Exits";
@@ -45,7 +45,7 @@ namespace Planner.Tests
         [TestMethod]
         public void AddGardenWithWrongText()
         {
-            Controller = new PlannerController();
+            Controller = new PlannerController("");
             string actual = command.Execute(Controller, new string[] { "add-garden", "po" });
             string expected = "Wrong Syntax.";
             Assert.AreEqual(expected, actual);
@@ -57,7 +57,7 @@ namespace Planner.Tests
         [TestMethod]
         public void AddGardenWithWrongNumberOfTextParameters()
         {
-            Controller = new PlannerController();
+            Controller = new PlannerController("");
             string actual = command.Execute(Controller, new string[] { "add-garden" });
             string expected = "Wrong Syntax.";
             Assert.AreEqual(expected, actual);

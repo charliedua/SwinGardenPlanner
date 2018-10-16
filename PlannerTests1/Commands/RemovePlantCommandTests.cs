@@ -12,7 +12,7 @@ namespace Planner.Commands.Tests
     public class RemovePlantCommandTests
     {
         private Command command = new AddPlantCommand();
-        private PlannerController controller = new PlannerController();
+        private PlannerController controller = new PlannerController("");
 
         //public RemovePlantCommandTests()
         //{
@@ -30,7 +30,7 @@ namespace Planner.Commands.Tests
         public void Init()
         {
             command = new AddPlantCommand();
-            controller = new PlannerController
+            controller = new PlannerController("")
             {
                 Garden = new Garden(5),
                 Plants = new List<Plant>
@@ -47,7 +47,7 @@ namespace Planner.Commands.Tests
         public void ValidTest()
         {
             string actual = command.Execute(controller, new string[] { "remove-plant", "0", "0" });
-            string expected = "";
+            string expected = "Plant Removed From Board";
             Assert.AreEqual(expected, actual);
         }
 

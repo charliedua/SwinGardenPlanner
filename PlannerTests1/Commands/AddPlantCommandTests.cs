@@ -12,7 +12,7 @@ namespace Planner.Commands.Tests
     public class AddPlantCommandTests
     {
         private Command command = new AddPlantCommand();
-        private PlannerController controller = new PlannerController();
+        private PlannerController controller = new PlannerController("");
 
         public AddPlantCommandTests()
         {

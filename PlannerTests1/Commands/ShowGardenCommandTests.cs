@@ -12,14 +12,14 @@ namespace Planner.Commands.Tests
     public class ShowGardenCommandTests
     {
         private Command command = new ShowGardenCommand();
-        private PlannerController controller = new PlannerController();
+        private PlannerController controller = new PlannerController("");
 
         [TestMethod()]
         public void GetHumanReadableGridTest()
         {
             controller.Garden = new Garden(5);
             string actual = command.Execute(controller, new string[] { "show-garden" });
-            string expected = "---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n\r\n";
+            string expected = "---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n|   |   |   |   |   |\r\n---------------------\r\n\r\n" + controller.CurrentUser.GetDetails();
             Assert.AreEqual(expected, actual);
         }
 
