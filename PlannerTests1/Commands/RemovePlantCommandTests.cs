@@ -11,35 +11,19 @@ namespace Planner.Commands.Tests
     [TestClass()]
     public class RemovePlantCommandTests
     {
-        private Command command = new AddPlantCommand();
+        private Command command = new RemovePlantCommand();
         private PlannerController controller = new PlannerController("");
 
-        //public RemovePlantCommandTests()
-        //{
-        //    controller.Garden = new Garden(5);
-        //    controller.Plants = new List<Plant>
-        //    {
-        //        new Plant(0, "Mango") { PlantDesc = "Grows in Summers", MaxTemperature = 50f, MinTemperature = 0f, Price = 12, WaterFrequency = 12 },
-        //        new Plant(1, "Bananna") { PlantDesc = "Grows all time", MaxTemperature = 50f, MinTemperature = 0f, Price = 15, WaterFrequency = 0 },
-        //        new Plant(2,"MoneyPlant") { PlantDesc = "Grows all time", MaxTemperature = 50f, MinTemperature = 0f, Price = 500, WaterFrequency = 10 },
-        //        new Plant(3, "grass") { PlantDesc = "Grows all time", MaxTemperature = 50f, MinTemperature = 0f, Price = 2, WaterFrequency = 1 }
-        //    };
-        //}
-
         [TestInitialize]
-        public void Init()
+        public void RemovePlantCommandTestsInit()
         {
-            command = new AddPlantCommand();
-            controller = new PlannerController("")
-            {
-                Garden = new Garden(5),
-                Plants = new List<Plant>
+            controller.Garden = new Garden(5);
+            controller.Plants = new List<Plant>
             {
                 new Plant(0, "Mango") { PlantDesc = "Grows in Summers", MaxTemperature = 50f, MinTemperature = 0f, Price = 12, WaterFrequency = 12 },
                 new Plant(1, "Bananna") { PlantDesc = "Grows all time", MaxTemperature = 50f, MinTemperature = 0f, Price = 15, WaterFrequency = 0 },
                 new Plant(2,"MoneyPlant") { PlantDesc = "Grows all time", MaxTemperature = 50f, MinTemperature = 0f, Price = 500, WaterFrequency = 10 },
                 new Plant(3, "grass") { PlantDesc = "Grows all time", MaxTemperature = 50f, MinTemperature = 0f, Price = 2, WaterFrequency = 1 }
-            }
             };
         }
 
@@ -49,11 +33,6 @@ namespace Planner.Commands.Tests
             string actual = command.Execute(controller, new string[] { "remove-plant", "0", "0" });
             string expected = "Plant Removed From Board";
             Assert.AreEqual(expected, actual);
-        }
-
-        [TestCleanup()]
-        public void Thing()
-        {
         }
     }
 }
