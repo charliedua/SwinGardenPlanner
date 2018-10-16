@@ -1,5 +1,6 @@
 language: csharp
 solution: SwinGardenPlanner.sln
 install:
-  - sudo apt-get install -y gtk-sharp2
-  - nuget restore SwinGardenPlanner.sln
+- travis_retry nuget restore -source "https://www.nuget.org/api/v2" SwinGardenPlanner.sln
+script:
+- xbuild SwinGardenPlanner.sln
