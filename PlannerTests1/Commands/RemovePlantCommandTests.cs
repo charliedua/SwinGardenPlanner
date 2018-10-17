@@ -39,6 +39,10 @@ namespace Planner.Commands.Tests
             string actual = removeCommand.Execute(controller, new string[] { "remove-plant", "0", "0" });
             string expected = "Plant removed from garden.";
             Assert.AreEqual(expected, actual);
+
+            actual = removeCommand.Execute(controller, new string[] { "remove-plant", "0", "0" });
+            expected = "Plant could not be found.";
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod()] // Using the wrong command syntax, or spelling it wrong.
         public void TestWrongSyntax()
