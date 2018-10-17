@@ -23,6 +23,10 @@ namespace Planner.Commands.Tests
             actual = budgetCommand.Execute(controller, new string[] { "set-budget", "0" });
             expected = "Budget updated: 0";
             Assert.AreEqual(expected, actual);
+
+            actual = budgetCommand.Execute(controller, new string[] { "set-budget", "3962.06" });
+            expected = "Budget updated: 3962.06";
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod()]// Tests if the user is allowed to enter a negative budget (they shouldn't be!)
