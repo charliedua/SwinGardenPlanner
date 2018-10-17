@@ -52,7 +52,7 @@ namespace Planner.Commands.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
+        [TestMethod]// Test that we can't add tools without a garden to put them in.
         public void TestToolWithoutGarden()
         {
             controller.Garden = null;
@@ -61,20 +61,13 @@ namespace Planner.Commands.Tests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
+        [TestMethod]// Make sure we can't place a tool where something else already is.
         public void TestToolConflictingPositionTest()
         {
-            controller.Garden.Cells[0][0].Object = controller.Plants[0];
-            string actual = command.Execute(controller, new string[] { "add-plant", "1", "0", "0" });
-            string expected = "The cell already has: " + controller.Plants[0].Name;
+            controller.Garden.Cells[0][0].Object = controller.Tools[0];
+            string actual = toolCommand.Execute(controller, new string[] { "add-tool", "1", "0", "0" });
+            string expected = "The cell already has: " + controller.Tools[0].Name;
         }
 
-        [TestMethod]
-        public void CornorCaseEndOfArrayAdditionTest()
-        {
-            string actual = command.Execute(controller, new string[] { "add-plant", "3", "4", "4" });
-            string expected = "Plant Created. Name: " + controller.Plants[3].Name;
-            Assert.AreEqual(expected, actual);
-        }
     }
 }
