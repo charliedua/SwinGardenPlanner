@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Planner.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Planner.Commands.Tests
 {
@@ -43,6 +38,14 @@ namespace Planner.Commands.Tests
         {
             string actual = budgetCommand.Execute(controller, new string[] { "set-budget", "hello" });
             string expected = "Wrong syntax for budget";
+            Assert.AreEqual(expected, actual);
+
+            actual = budgetCommand.Execute(controller, new string[] { "set-potato", "500" });
+            expected = "Wrong syntax for budget";
+            Assert.AreEqual(expected, actual);
+
+            actual = budgetCommand.Execute(controller, new string[] { "500", "set-budget" });
+            expected = "Wrong syntax for budget";
             Assert.AreEqual(expected, actual);
         }
 
