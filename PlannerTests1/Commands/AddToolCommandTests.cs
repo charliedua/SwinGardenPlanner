@@ -38,6 +38,8 @@ namespace Planner.Commands.Tests
             Assert.AreEqual(expected, actual);
             actual = toolCommand.Execute(controller, new string[] { "add-tool", "0", "p", "1" });
             Assert.AreEqual(expected, actual);
+            actual = toolCommand.Execute(controller, new string[] { "add-toool", "0", "0", "0" });
+            Assert.AreEqual(expected, actual);
             actual = toolCommand.Execute(controller, new string[] { "add-plant", "0", "0", "0" });
             Assert.AreEqual(expected, actual);
             actual = toolCommand.Execute(controller, new string[] { "remove-garden", "225", "2522", "2522" });
