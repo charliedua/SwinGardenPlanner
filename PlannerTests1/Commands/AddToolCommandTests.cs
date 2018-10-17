@@ -67,6 +67,7 @@ namespace Planner.Commands.Tests
             controller.Garden.Cells[0][0].Object = controller.Tools[0];
             string actual = toolCommand.Execute(controller, new string[] { "add-tool", "1", "0", "0" });
             string expected = "The cell already has: " + controller.Tools[0].Name;
+            Assert.AreEqual(expected, actual);
         }
 
     }
