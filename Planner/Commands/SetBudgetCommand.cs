@@ -26,16 +26,16 @@ namespace Planner.Commands
                 if (decimal.TryParse(CommandText[1], out decimal budget))
                 {
                     Controller.CurrentUser.Budget = budget;
-                    return $"budget Updated: {budget}";
+                    return $"Budget updated: {budget}";
                 }
                 else
                 {
-                    return "Wrong Syntax for budget";
+                    return "Wrong syntax for budget";
                 }
             }
             else
             {
-                return "Wrong Syntax for budget";
+                return "Wrong syntax for budget";
             }
         }
     }
