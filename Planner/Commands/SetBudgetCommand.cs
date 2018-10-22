@@ -20,13 +20,19 @@ namespace Planner.Commands
             {
                 return "Unknown Input";
             }
-
             if (Identifiers.Contains(CommandText[0].ToLower()))
             {
                 if (decimal.TryParse(CommandText[1], out decimal budget))
                 {
-                    Controller.CurrentUser.Budget = budget;
-                    return $"Budget updated: {budget}";
+                    if(budget >= 0)
+                    {
+                        Controller.CurrentUser.Budget = budget;
+                        return $"Budget updated: {budget}";
+                    }
+                    else
+                    {
+                        return "Budget Can't Be Negative";
+                    }
                 }
                 else
                 {
