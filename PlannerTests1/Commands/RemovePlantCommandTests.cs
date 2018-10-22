@@ -8,21 +8,24 @@ namespace Planner.Commands.Tests
     public class RemovePlantCommandTests
     {
         private Command removeCommand = new RemovePlantCommand();
-        private PlannerController controller = new PlannerController("");
-        private Command addCommand = new AddPlantCommand();
 
-        [TestInitialize]
-        public void RemovePlantCommandTestsInit()
+        private PlannerController controller = new PlannerController("TestUser")
         {
-
-            controller.Garden = new Garden(5);
-            controller.Plants = new List<Plant>
+            Plants = new List<Plant>
             {
                 new Plant(0, "Mango") { PlantDesc = "Grows in Summer", MaxTemperature = 50f, MinTemperature = 0f, Price = 12, WaterFrequency = 12 },
                 new Plant(1, "Banana") { PlantDesc = "Grows any time", MaxTemperature = 50f, MinTemperature = 0f, Price = 15, WaterFrequency = 0 },
                 new Plant(2,"Money Plant") { PlantDesc = "Grows any time", MaxTemperature = 50f, MinTemperature = 0f, Price = 500, WaterFrequency = 10 },
                 new Plant(3, "Grass") { PlantDesc = "Grows any time", MaxTemperature = 50f, MinTemperature = 0f, Price = 2, WaterFrequency = 1 }
-            };
+            }
+        };
+
+        private Command addCommand = new AddPlantCommand();
+
+        [TestInitialize]
+        public void RemovePlantCommandTestsInit()
+        {
+            controller.Garden = new Garden(5);
         }
 
         [TestMethod()]// Trying to remove a plant that is yet to be added.
@@ -32,6 +35,7 @@ namespace Planner.Commands.Tests
             string expected = "Plant could not be found.";
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod()]// Successfully removing a plant that has been added.
         public void TestPlantRemoved()
         {
@@ -44,6 +48,7 @@ namespace Planner.Commands.Tests
             expected = "Plant could not be found.";
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod()] // Using the wrong command syntax, or spelling it wrong.
         public void TestWrongSyntax()
         {
@@ -53,6 +58,18 @@ namespace Planner.Commands.Tests
             actual = removeCommand.Execute(controller, new string[] { "remove-palnt", "0", "2" });
             Assert.AreEqual(expected, actual);
             actual = removeCommand.Execute(controller, new string[] { "remove plant", "5", "2" });
+            Assert.AreEqual(expected, actual);
+        }
+
+        // Integration Test
+        [TestMethod]
+        public void TestPlantRemovedChangedBudget()
+        {
+            decimal oldBudget = controller.CurrentUser.Budget;
+            addCommand.Execute(controller, new string[] { "add-plant", "0", "0", "0" });
+            removeCommand.Execute(controller, new string[] { "remove-plant", "0", "0" });
+            decimal actual = controller.CurrentUser.Budget;
+            decimal expected = oldBudget;
             Assert.AreEqual(expected, actual);
         }
     }
