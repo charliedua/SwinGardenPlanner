@@ -24,7 +24,7 @@ namespace Planner.Commands
             {
                 return "Wrong Syntax.";
             }
-            if (X + 1 > controller.Garden.Width || Y + 1 > controller.Garden.Width)
+            if (X + 1 > controller.Garden.Width || Y + 1 > controller.Garden.Width || X < 0 || Y < 0)
             {
                 return "You Can Only Remove From Within Your Garden";
             }
