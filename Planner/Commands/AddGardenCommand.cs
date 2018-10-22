@@ -14,7 +14,7 @@ namespace Planner.Commands
 
         /*
          * add-garden [INT]
-         */
+        */
 
         public override List<string> Identifiers => new List<string>() { "add-garden" };
 
@@ -27,6 +27,10 @@ namespace Planner.Commands
             if (controller.Garden != null)
             {
                 return "Garden Already Exits";
+            }
+            if (size < 1)
+            {
+                return "Garden Size Must Be Greater Than Zero";
             }
             else
             {
