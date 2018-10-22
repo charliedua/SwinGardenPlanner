@@ -34,7 +34,11 @@ namespace Planner.Commands
             }
             else
             {
-                string removed = controller.Garden.Cells[X][Y].Object.Name + " removed";
+                string removed = controller.Garden.Cells[X][Y].Object.Name + " removed from garden";
+                int ID = controller.Garden.Cells[X][Y].Object.ID;
+                Plant plant = controller.Plants.Find(x => x.ID == ID);
+                controller.Garden.Cells[X][Y].Object = plant;
+                controller.CurrentUser.Budget += plant.Price;
                 controller.Garden.Cells[X][Y].Object = null;
                 return removed;
             }

@@ -18,6 +18,7 @@ namespace Planner
         /// </summary>
         private string _plantFamily;
 
+
         /// <summary>
         /// The price
         /// </summary>
