@@ -12,11 +12,32 @@ namespace Planner.Commands
         {
         }
 
-        public override List<string> Identifiers => throw new NotImplementedException();
+           /*
+            * remove-plant [INT] [INT]
+            * remove-plant [ X ] [ Y ]
+            */
 
+        public override List<string> Identifiers => new List<string>() { "remove-plant" };
         public override string Execute(PlannerController controller, string[] CommandText)
         {
-            throw new NotImplementedException();
+            if (!AreYou(CommandText[0]) || CommandText.Length != 3 || !int.TryParse(CommandText[1], out int X) || !int.TryParse(CommandText[2], out int Y))
+            {
+                return "Wrong Syntax.";
+            }
+            if (X + 1 > controller.Garden.Width || Y + 1 > controller.Garden.Width)
+            {
+                return "You Can Only Remove From Within Your Garden";
+            }
+            if (!controller.Garden.Cells[X][Y].HasObject)
+            {
+                return "The Cell Is Already Empty";
+            }
+            else
+            {
+                string removed = controller.Garden.Cells[X][Y].Object.Name + " removed";
+                controller.Garden.Cells[X][Y].Object = null;
+                return removed;
+            }
         }
     }
 }
