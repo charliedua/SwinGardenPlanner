@@ -41,11 +41,11 @@ namespace Planner.Commands.Tests
         {
             addCommand.Execute(controller, new string[] { "add-plant", "0", "0", "0" });
             string actual = removeCommand.Execute(controller, new string[] { "remove-plant", "0", "0" });
-            string expected = controller.Garden.Cells[0][0].Object.Name + " removed from garden.";
+            string expected = "Mango removed from garden";
             Assert.AreEqual(expected, actual);
 
             actual = removeCommand.Execute(controller, new string[] { "remove-plant", "0", "0" });
-            expected = "Plant could not be found.";
+            expected = "The Cell Is Already Empty";
             Assert.AreEqual(expected, actual);
         }
 
