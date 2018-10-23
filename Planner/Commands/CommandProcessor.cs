@@ -26,6 +26,7 @@ namespace Planner.Commands
 
         public static string[] SplitString(string text)
         {
+            text = text.Trim();
             return text.Split(' ');
         }
 
